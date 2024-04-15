@@ -15,9 +15,9 @@ sudo pacman -Sy archlinux-keyring
 sudo pacman -Syyu
 ```
 
-### Install firefox
+### Install firefox and nemo
 ```sh
-sudo pacman -Sy firefox
+sudo pacman -Sy firefox nemo
 ```
 
 ### Install yay, aur
@@ -78,7 +78,7 @@ sudo cp -r ./fonts/* /usr/share/fonts
 
 ### Install additional dependencies
 ```sh
-yay -S acpi neovim
+yay -S acpi neovim papirus-icon-theme coreshot zathura zathura-pdf-mupdf
 ```
 
 ### Setup zsh and powerlevel10k
@@ -131,4 +131,19 @@ sudo pacman -Rs lightdm-gtk-greeter
 sudo pacman -Rs lightdm
 ```
 
+### Setup lock screen
+Ensure i3lock-color is installed.
+```sh
+echo "bindsym $mod+x exec i3lock --blur 9" >> ~/.config/i3/config
+```
 
+### Setup background
+```sh
+sudo cp ./bg_stars.jpg /usr/share/backgrounds/i3/bg_stars.jpg
+```
+
+### Setup dunst for notifications
+```sh
+yay -S dunst libnotify
+cp -r ./dunst ~/.config/dunst
+```
