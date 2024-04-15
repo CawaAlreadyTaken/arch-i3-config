@@ -147,3 +147,11 @@ sudo cp ./bg_stars.jpg /usr/share/backgrounds/i3/bg_stars.jpg
 yay -S dunst libnotify
 cp -r ./dunst ~/.config/dunst
 ```
+
+### Set gnome as DE
+Aggiungi:
+```
+[Session]
+SessionCommand=i3
+```
+a `/etc/sddm.conf`.
