@@ -103,3 +103,32 @@ Configuration should start. Otherwise, type `p10k configure`. Otherwise, `cp ./.
 cp -r ./nvim ~/.config/
 nvim +PackerSync
 ```
+
+### Setup gtk
+```sh
+mkdir -p "$HOME"/.config/gtk-4.0
+git clone https://github.com/Fausto-Korpsvart/Rose-Pine-GTK-Theme ~/repos/Rose-Pine-GTK-Theme
+sudo cp -r ~/repos/Rose-Pine-GTK-Theme/themes/RosePine-Main-BL  /usr/share/themes/RosePine-Main
+sudo cp -r ~/repos/Rose-Pine-GTK-Theme/themes/RosePine-Main-BL/gtk-4.0/* "$HOME"/.config/gtk-4.0
+```
+
+Then, mod+d, "Customize Look and Feel", and select Rose-Pine.
+
+### Setup sddm
+```sh
+yay -S --needed qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
+yay -S --needed qt6-5compat qt6-declarative qt6-svg sddm
+sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+echo "[Theme]
+Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
+```
+
+Now remove the older lightdm:
+```sh
+sudo systemctl disable lightdm
+sudo pacman -Rs lightdm-gtk-greeter
+sudo pacman -Rs lightdm
+```
+
+
