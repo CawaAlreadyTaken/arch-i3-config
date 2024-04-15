@@ -20,6 +20,14 @@ sudo pacman -Syyu
 sudo pacman -Sy firefox
 ```
 
+### Install yay, aur
+```sh
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git ~/.srcs/yay
+cd ~/.srcs/yay
+makepkg -si
+```
+
 ### Set natural scrolling
 ```sh
 sudo vim /etc/X11/xorg.conf.d/30-touchpad.conf
@@ -61,4 +69,37 @@ libinput-gestures-setup status
 sudo pacman -S code
 echo 'for_window [class="code"] move to workspace $ws4' >> ~/.config/i3/config
 echo 'bindsym $mod+c workspace 4; exec code' >> ~/.config/i3/config
+```
+
+### Add other fonts
+```sh
+sudo cp -r ./fonts/* /usr/share/fonts
+```
+
+### Install additional dependencies
+```sh
+yay -S acpi neovim
+```
+
+### Setup zsh and powerlevel10k
+
+(assuming zsh is already installed)  
+
+Remember that if we want to setup zsh again, we can just remove the `~/.zshrc` file and start `zsh`
+
+```sh
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+exec zsh
+chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
+fc-cache -fv
+```
+
+Configuration should start. Otherwise, type `p10k configure`. Otherwise, `cp ./.zshrc ~/.zshrc`
+
+### Setup nvim
+```sh
+cp -r ./nvim ~/.config/
+nvim +PackerSync
 ```
