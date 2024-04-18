@@ -99,9 +99,9 @@ fc-cache -fv
 Configuration should start. Otherwise, type `p10k configure`. Otherwise, `cp ./.zshrc ~/.zshrc`
 
 ### Setup nvim
-First, install node and npm
+First, install node, npm and zig
 ```sh
-sudo pacman -S nodejs npm
+yay -S nodejs npm zig
 ```
 Then, setup nvim
 ```sh
@@ -109,6 +109,12 @@ rm -rf ~/.config/nvim
 cp -r ./nvim ~/.config/
 nvim --headless +q
 nvim
+```
+
+### Setup polybar
+```sh
+rm -rf ~/.config/polybar
+cp -r polybar ~/.config/
 ```
 
 ### Setup gtk
@@ -123,7 +129,6 @@ Then, mod+d, "Customize Look and Feel", and select Rose-Pine.
 
 ### Setup sddm
 ```sh
-yay -S --needed qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm
 yay -S --needed qt6-5compat qt6-declarative qt6-svg sddm
 sudo git clone https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
 sudo cp /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
@@ -136,6 +141,7 @@ Now remove the older lightdm:
 sudo systemctl disable lightdm
 sudo pacman -Rs lightdm-gtk-greeter
 sudo pacman -Rs lightdm
+sudo systemctl enable sddm
 ```
 
 ### Setup lock screen
