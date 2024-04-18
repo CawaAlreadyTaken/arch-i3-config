@@ -67,8 +67,8 @@ libinput-gestures-setup status
 ### Install vscode
 ```sh
 sudo pacman -S code
-echo 'for_window [class="code"] move to workspace $ws4' >> ~/.config/i3/config
-echo 'bindsym $mod+c workspace 4; exec code' >> ~/.config/i3/config
+echo 'for_window [class="code"] move to workspace \$ws4' >> ~/.config/i3/config
+echo 'bindsym \$mod+c workspace 4; exec code' >> ~/.config/i3/config
 ```
 
 ### Add other fonts
@@ -100,8 +100,9 @@ Configuration should start. Otherwise, type `p10k configure`. Otherwise, `cp ./.
 
 ### Setup nvim
 ```sh
+rm -rf ~/.config/nvim
 cp -r ./nvim ~/.config/
-nvim +PackerSync
+nvim --headless +q
 ```
 
 ### Setup gtk
@@ -134,7 +135,7 @@ sudo pacman -Rs lightdm
 ### Setup lock screen
 Ensure i3lock-color is installed.
 ```sh
-echo "bindsym $mod+x exec i3lock --blur 9" >> ~/.config/i3/config
+echo "bindsym \$mod+x exec i3lock --blur 9" >> ~/.config/i3/config
 ```
 
 ### Setup background
@@ -148,10 +149,19 @@ yay -S dunst libnotify
 cp -r ./dunst ~/.config/dunst
 ```
 
-### Set gnome as DE
-Aggiungi:
+### Remove upper border to windows, add colors
+```sh
+echo "new_window pixel 1" >> ~/.config/i3/config
+echo "new_float normal" >> ~/.config/i3/config
+echo "hide_edge_borders none" >> ~/.config/i3/config
+echo "floating_modifier \$mod" >> ~/.config/i3/config
+
+echo "# Theme colors" >> ~/.config/i3/config
+echo "# class                 border  backgr. text    indic.   child_border" >> ~/.config/i3/config
+echo "client.focused          #556064 #556064 #80FFF9 #FDF6E3" >> ~/.config/i3/config
+echo "client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948" >> ~/.config/i3/config
+echo "client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948" >> ~/.config/i3/config
+echo "client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2" >> ~/.config/i3/config
+echo "client.placeholder      #000000 #0c0c0c #ffffff #000000" >> ~/.config/i3/config
+echo "client.background       #2B2C2B" >> ~/.config/i3/config
 ```
-[Session]
-SessionCommand=i3
-```
-a `/etc/sddm.conf`.
