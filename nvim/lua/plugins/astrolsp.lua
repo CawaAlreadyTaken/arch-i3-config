@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -43,65 +45,7 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      clangd = {
-        on_attach = function(_, bufnr)
-          require("clangd_extensions.inlay_hints").setup_autocmd()
-          require("clangd_extensions.inlay_hints").set_inlay_hints()
-        end,
-        capabilities = { offsetEncoding = "utf-8" },
-      },
-      lua_ls = { settings = { Lua = { hint = { enable = true, arrayIndex = "Disable" } } } },
-      basedpyright = {
-        before_init = function(_, c)
-          if not c.settings then c.settings = {} end
-          if not c.settings.python then c.settings.python = {} end
-          c.settings.python.pythonPath = vim.fn.exepath "python"
-        end,
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = "basic",
-              autoImportCompletions = true,
-              stubPath = vim.env.HOME .. "/typings",
-              diagnosticSeverityOverrides = {
-                reportUnusedImport = "information",
-                reportUnusedFunction = "information",
-                reportUnusedVariable = "information",
-                reportGeneralTypeIssues = "none",
-                reportOptionalMemberAccess = "none",
-                reportOptionalSubscript = "none",
-                reportPrivateImportUsage = "none",
-              },
-            },
-          },
-        },
-      },
-      vtsls = {
-        settings = {
-          typescript = {
-            inlayHints = {
-              parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = false },
-              parameterTypes = { enabled = true },
-              variableTypes = { enabled = true, suppressWhenTypeMatchesName = false },
-              propertyDeclarationTypes = { enabled = true },
-              functionLikeReturnTypes = { enabled = true },
-              enumMemberValues = { enabled = true },
-            },
-            updateImportsOnFileMove = { enabled = "always" },
-          },
-          javascript = {
-            inlayHints = {
-              parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = false },
-              parameterTypes = { enabled = true },
-              variableTypes = { enabled = true, suppressWhenTypeMatchesName = false },
-              propertyDeclarationTypes = { enabled = true },
-              functionLikeReturnTypes = { enabled = true },
-              enumMemberValues = { enabled = true },
-            },
-            updateImportsOnFileMove = { enabled = "always" },
-          },
-        },
-      },
+      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached
     handlers = {

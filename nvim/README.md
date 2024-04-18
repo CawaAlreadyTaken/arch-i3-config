@@ -1,53 +1,34 @@
-<div align="center">
-<img src="https://img.shields.io/github/last-commit/kabinspace/AstroNvim_user?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
-<img src="https://img.shields.io/github/repo-size/kabinspace/AstroNvim_user?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
-<img src="https://img.shields.io/github/license/kabinspace/AstroNvim_user?style=for-the-badge&logo=powerpages&color=cba6f7&logoColor=D9E0EE&labelColor=302D41"/>
-</div>
+# AstroNvim Template
 
-## 🌟 Preview
+**NOTE:** This is for AstroNvim v4+
 
-![Preview1](https://github.com/kabinspace/AstroNvim_user/blob/master/.github/assets/overview.png)
-![Preview2](https://github.com/kabinspace/AstroNvim_user/blob/master/.github/assets/vertsplit.png)
+A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
-## ⚡ Requirements
+## 🛠️ Installation
 
-- **[Neovim 0.9+](https://github.com/neovim/neovim/releases/tag/stable)**
+#### Make a backup of your current nvim and shared folder
 
-- **[Codicons Font](https://github.com/kabinspace/AstroNvim_user/blob/master/.github/assets/codicon.ttf)**
-
-## 🛠️ Direct Installation
-
-- **Make a backup of your current nvim folder**
-
-```sh
+```shell
 mv ~/.config/nvim ~/.config/nvim.bak
-
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+mv ~/.local/state/nvim ~/.local/state/nvim.bak
+mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-- **Clone the repository**
+#### Create a new user repository from this template
 
-```sh
-git clone https://github.com/kabinspace/AstroNvim_user ~/.config/nvim
+Press the "Use this template" button above to create a new repository to store your user configuration.
+
+You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
+
+#### Clone the repository
+
+```shell
+git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```
 
-- **Initialize AstroNvim**
+#### Start Neovim
 
-```sh
-nvim --headless +q
-```
-
-## 📦 Isolated Installation
-
-Install without overwriting your own existing neovim configuration
-
-- **Clone the repository**
-
-```
-git clone https://github.com/kabinspace/AstroNvim_user ~/.config/astronvim
-```
-
-- **Start the editor with `NVIM_APPNAME` environment variable set to `astronvim`**
-
-```
-NVIM_APPNAME=astronvim nvim
+```shell
+nvim
 ```

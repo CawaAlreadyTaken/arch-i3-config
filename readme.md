@@ -99,10 +99,16 @@ fc-cache -fv
 Configuration should start. Otherwise, type `p10k configure`. Otherwise, `cp ./.zshrc ~/.zshrc`
 
 ### Setup nvim
+First, install node and npm
+```sh
+sudo pacman -S nodejs npm
+```
+Then, setup nvim
 ```sh
 rm -rf ~/.config/nvim
 cp -r ./nvim ~/.config/
 nvim --headless +q
+nvim
 ```
 
 ### Setup gtk
